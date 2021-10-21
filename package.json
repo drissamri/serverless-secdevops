@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "serverless-iam-roles-per-function": "3.2.0",
+    "serverless-plugin-log-subscription": "2.0.1"
+  },
+  "scripts": {
+    "deploy": "sls deploy"
+  }
+}

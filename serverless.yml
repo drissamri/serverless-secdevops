@@ -1,0 +1,61 @@
+service: order-service
+
+plugins:
+  - serverless-iam-roles-per-function
+
+provider:
+  name: aws
+  region: ${opt:region, 'eu-west-1'}
+  stage: ${opt:stage, 'dev'}
+
+  logRetentionInDays: 7
+  versionFunctions: false
+
+  lambdaHashingVersion: "20201221"
+  apiGateway:
+    shouldStartNameWithService: true
+
+package:
+  artifact: './target/lambda.zip'
+
+functions:
+  addOrder:
+    name: ${self:service}-${self:provider.stage}
+    handler: com.splunk.support.lambda.TracingRequestApiGatewayWrapper::handleRequest
+    runtime: java11
+    memorySize: 3072
+    timeout: 10
+    events:
+      - http:
+          path: /order
+          method: get
+    environment:
+      TABLE: !Ref OrderTable
+
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:PutItem
+        Resource:
+          - !GetAtt OrderTable.Arn
+
+
+resources:
+  Resources:
+    OrderTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: order
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: name
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: name
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
