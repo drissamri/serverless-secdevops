@@ -25,6 +25,9 @@
         <aws.lambda-events.version>3.9.0</aws.lambda-events.version>
         <symphonia.logging.version>1.0.3</symphonia.logging.version>
         <jackson-jr.version>2.13.0-rc1</jackson-jr.version>
+
+        <sonar.organization>drissamri</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
 
