@@ -21,11 +21,11 @@ jobs:
         run: ./mvnw test
 
       - name: Cache Sonar packages
-          uses: actions/cache@v1
-          with:
-            path: ~/.sonar/cache
-            key: ${{ runner.os }}-sonar
-            restore-keys: ${{ runner.os }}-sonar
+        uses: actions/cache@v2
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
       - name: Run Sonar Scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
