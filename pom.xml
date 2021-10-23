@@ -19,12 +19,12 @@
         <surefire-plugin.version>2.22.1</surefire-plugin.version>
 
         <aws.log4j.version>2.13.3</aws.log4j.version>
-        <aws.sdk.version>2.17.6</aws.sdk.version>
-        <aws.xray.version>2.9.1</aws.xray.version>
+        <aws.sdk.version>2.17.66</aws.sdk.version>
+        <aws.xray.version>2.10.0</aws.xray.version>
         <aws.lambda-core.version>1.2.1</aws.lambda-core.version>
-        <aws.lambda-events.version>3.9.0</aws.lambda-events.version>
+        <aws.lambda-events.version>3.10.0</aws.lambda-events.version>
         <symphonia.logging.version>1.0.3</symphonia.logging.version>
-        <jackson-jr.version>2.13.0-rc1</jackson-jr.version>
+        <jackson-jr.version>2.13.0</jackson-jr.version>
 
         <sonar.organization>drissamri</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -61,6 +61,12 @@
             <artifactId>jackson-jr-objects</artifactId>
             <version>${jackson-jr.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.0</version>
+        </dependency>
+
 
 
         <!-- DynamoDB -->
@@ -121,13 +127,13 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.20.2</version>
+            <version>3.21.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.11.2</version>
+            <version>4.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
