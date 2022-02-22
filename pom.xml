@@ -22,7 +22,7 @@
         <aws.sdk.version>2.17.66</aws.sdk.version>
         <aws.xray.version>2.10.0</aws.xray.version>
         <aws.lambda-core.version>1.2.1</aws.lambda-core.version>
-        <aws.lambda-events.version>3.10.0</aws.lambda-events.version>
+        <aws.lambda-events.version>3.11.0</aws.lambda-events.version>
         <symphonia.logging.version>1.0.3</symphonia.logging.version>
         <jackson-jr.version>2.13.0</jackson-jr.version>
 
